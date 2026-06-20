@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spinach the Cow — Learning, Living &amp; Laughing</title>
+  <meta name="description" content="Spinach the Cow is a wholesome lifestyle brand centered around curiosity, kindness, sustainability, and bringing joy through apparel, books, and home goods." />
+  <meta name="keywords" content="Spinach the Cow, lifestyle brand, merchandise, sustainable, education, wellness" />
+  <meta property="og:title" content="Spinach the Cow — Learning, Living & Laughing" />
+  <meta property="og:description" content="A wholesome lifestyle brand centered around curiosity, kindness, and sustainability." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#A8D5A0',
+              'green-deep': '#4A9E3F',
+              'green-dark': '#357A2B',
+              sky: '#B8DFF0',
+              beige: '#E8C87A',
+              cream: '#FAF8F5',
+              charcoal: '#2D2D2D',
+            }
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+
+    /* Intersection Observer driven */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth card hover */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    /* Navbar transition */
+    .nav-solid {
+      background: rgba(250, 248, 245, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .dark .nav-solid {
+      background: rgba(30, 30, 30, 0.97);
+    }
+
+    /* Product image placeholder */
+    .product-placeholder {
+      background: linear-gradient(135deg, #A8D5A0 0%, #B8DFF0 50%, #E8C87A 100%);
+    }
+
+    /* Team photo placeholder */
+    .team-photo-placeholder {
+      background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #FAF8F5; }
+    ::-webkit-scrollbar-thumb { background: #A8D5A0; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4A9E3F; }
+
+    /* Dark mode transitions */
+    * { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+  </style>
+</head>
+
+<body class="font-sans text-brand-charcoal bg-brand-cream dark:bg-gray-950 dark:text-gray-100 antialiased">
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-green flex items-center justify-center text-white font-serif text-xl md:text-2xl font-bold group-hover:scale-110 transition-transform">
+            S
+          </div>
+          <span class="font-serif text-lg md:text-xl text-brand-charcoal dark:text-white">Spinach<span class="text-brand-green-deep">.</span></span>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#home" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Home</a>
+          <a href="#about" class="text-sm font-medium hover:text-brand-green-deep transition-colors">About</a>
+          <a href="#shop" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Shop</a>
+          <a href="#story" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Our Story</a>
+          <a href="#team" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Our Team</a>
+          <a href="#blog" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Blog</a>
+          <a href="#contact" class="text-sm font-medium hover:text-brand-green-deep transition-colors">Contact</a>
+        </div>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-3">
+          <!-- Dark Mode Toggle -->
+          <button id="darkToggle" class="p-2 rounded-full hover:bg-brand-green/20 transition-colors" aria-label="Toggle dark mode">
+            <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          </button>
+
+          <!-- Cart -->
+          <button class="p-2 rounded-full hover:bg-brand-green/20 transition-colors relative" aria-label="Cart">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <span class="absolute -top-1 -right-1 w-4 h-4 bg-brand-green-deep text-white text-[10px] rounded-full flex items-center justify-center">0</span>
+          </button>
+
+          <!-- Shop Now CTA -->
+          <a href="#shop" class="hidden sm:inline-flex items-center px-5 py-2.5 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all hover:shadow-lg hover:shadow-brand-green-deep/25">
+            Shop Now
+          </a>
+
+          <!-- Mobile Menu Toggle -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg hover:bg-brand-green/20 transition-colors" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden bg-brand-cream/98 dark:bg-gray-950/98 backdrop-blur-lg border-t border-brand-green/10">
+      <div class="px-4 py-6 space-y-4">
+        <a href="#home" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Home</a>
+        <a href="#about" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">About</a>
+        <a href="#shop" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Shop</a>
+        <a href="#story" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Our Story</a>
+        <a href="#team" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Our Team</a>
+        <a href="#blog" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Blog</a>
+        <a href="#contact" class="block text-base font-medium hover:text-brand-green-deep transition-colors mobile-link">Contact</a>
+        <a href="#shop" class="inline-flex items-center px-6 py-3 bg-brand-green-deep text-white font-semibold rounded-full mobile-link">Shop Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <!-- Background Decorations -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-brand-green/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-sky/20 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-beige/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Logo Mark -->
+      <div class="mb-8 animate-fade-in">
+        <div class="inline-flex items-center justify-center w-32 h-32 md:w-44 md:h-44 rounded-full bg-white dark:bg-gray-900 shadow-xl shadow-brand-green/15 animate-float">
+          <div class="text-6xl md:text-8xl">🐄</div>
+        </div>
+      </div>
+
+      <!-- Headlines -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-brand-charcoal dark:text-white mb-6 animate-fade-in-up">
+        Learning, Living &amp; Laughing<br />
+        <span class="text-brand-green-deep">with Spinach the Cow</span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-brand-charcoal/70 dark:text-gray-300 mb-10 animate-fade-in-up delay-200">
+        A wholesome lifestyle brand where curiosity meets kindness. Explore our world of thoughtfully designed apparel, books, and home goods that make learning and living a little more joyful.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
+        <a href="#shop" class="inline-flex items-center px-8 py-4 bg-brand-green-deep hover:bg-brand-green-dark text-white text-base font-semibold rounded-full transition-all hover:shadow-xl hover:shadow-brand-green-deep/30 hover:scale-105">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          Shop Merch
+        </a>
+        <a href="#about" class="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-brand-charcoal dark:text-white text-base font-semibold rounded-full border border-brand-green/30 hover:border-brand-green-deep transition-all hover:shadow-lg hover:scale-105">
+          Learn More
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-brand-charcoal/50 dark:text-gray-500 animate-fade-in-up delay-400">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-green-deep" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Sustainably Made
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-green-deep" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Free Shipping 50+
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-green-deep" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          10K+ Happy Customers
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT SECTION
+       ============================================================ -->
+  <section id="about" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Image Side -->
+        <div class="reveal">
+          <div class="relative">
+            <div class="aspect-square rounded-3xl bg-gradient-to-br from-brand-green/30 via-brand-sky/20 to-brand-beige/30 flex items-center justify-center overflow-hidden">
+              <div class="text-[140px] md:text-[180px] animate-float">🐄</div>
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-brand-green-deep text-white px-6 py-3 rounded-2xl font-semibold shadow-lg">
+              Est. 2024
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Side -->
+        <div class="reveal">
+          <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">About Us</span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-6">
+            More Than a Brand.<br />It's a Way of Life.
+          </h2>
+          <p class="text-lg text-brand-charcoal/70 dark:text-gray-300 mb-6 leading-relaxed">
+            Spinach the Cow started with a simple idea: what if a lovable, book-reading cow could inspire people to stay curious, be kind, and live a little more thoughtfully? What began as a character sketch on a napkin has blossomed into a lifestyle brand that champions learning, sustainability, and genuine connection.
+          </p>
+          <p class="text-lg text-brand-charcoal/70 dark:text-gray-300 mb-8 leading-relaxed">
+            Every product we create — from our buttery-soft organic cotton tees to our beautifully illustrated children's books — carries Spinach's spirit: warm, wholesome, and always a little playful.
+          </p>
+          <div class="grid grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="font-serif text-3xl md:text-4xl text-brand-green-deep font-bold">10K+</div>
+              <div class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Happy Customers</div>
+            </div>
+            <div class="text-center">
+              <div class="font-serif text-3xl md:text-4xl text-brand-green-deep font-bold">50+</div>
+              <div class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Products</div>
+            </div>
+            <div class="text-center">
+              <div class="font-serif text-3xl md:text-4xl text-brand-green-deep font-bold">100%</div>
+              <div class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Sustainable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SHOP / FEATURED PRODUCTS
+       ============================================================ -->
+  <section id="shop" class="py-24 md:py-32 bg-brand-cream dark:bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">Shop</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-4">Featured Collection</h2>
+        <p class="max-w-2xl mx-auto text-lg text-brand-charcoal/60 dark:text-gray-400">Thoughtfully designed, sustainably made. Each piece carries a piece of Spinach's story.</p>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group">
+            <span class="text-7xl">👕</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Bestseller</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Classic Spinach Tee</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">100% Organic Cotton</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$38</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #B8DFF0 0%, #A8D5A0 50%, #E8C87A 100%);">
+            <span class="text-7xl">🧥</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">New</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Cozy Pasture Hoodie</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Heavyweight French Terry</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$68</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #E8C87A 0%, #A8D5A0 50%, #B8DFF0 100%);">
+            <span class="text-7xl">👜</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Popular</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Spinach Canvas Tote</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Recycled Canvas</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$28</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #A8D5A0 0%, #E8C87A 50%, #B8DFF0 100%);">
+            <span class="text-7xl">☕</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Fan Favorite</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Morning Meadow Mug</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Ceramic, 14oz</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$22</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #B8DFF0 0%, #E8C87A 50%, #A8D5A0 100%);">
+            <span class="text-7xl">📚</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">New Release</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Spinach's Big Adventure</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Illustrated Children's Book</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$18</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #E8C87A 0%, #B8DFF0 50%, #A8D5A0 100%);">
+            <span class="text-7xl">🧢</span>
+            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Limited</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Pasture Dad Cap</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Embroidered, Adjustable</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$32</span>
+              <button class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All -->
+      <div class="text-center mt-12 reveal">
+        <a href="#" class="inline-flex items-center px-8 py-4 border-2 border-brand-green-deep text-brand-green-deep hover:bg-brand-green-deep hover:text-white font-semibold rounded-full transition-all">
+          View All Products
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR STORY
+       ============================================================ -->
+  <section id="story" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">Our Story</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-8">
+          From a Napkin Sketch to a Movement
+        </h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="max-w-3xl mx-auto mt-16 space-y-12">
+        <div class="flex gap-6 reveal">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green-deep text-white flex items-center justify-center font-bold text-sm shrink-0">2024</div>
+            <div class="w-0.5 h-full bg-brand-green/30 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">The Spark</h3>
+            <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed">It all started with a doodle during a late-night study session. A cow with glasses, holding a book about spinach. The character was so endearing that friends started asking for stickers, then shirts, then more. Spinach the Cow was born from a genuine love of learning and a belief that education should feel joyful — not like a chore.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 reveal">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green-deep text-white flex items-center justify-center font-bold text-sm shrink-0">2025</div>
+            <div class="w-0.5 h-full bg-brand-green/30 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">Growing the Herd</h3>
+            <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed">What began as a small Etsy shop became something bigger. We partnered with sustainable manufacturers, launched our first children's book, and built a community of thousands who believe in curiosity-driven living. Every product was designed with intention: to spark conversation, encourage learning, and reduce our footprint on the planet.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 reveal">
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green-deep text-white flex items-center justify-center font-bold text-sm shrink-0">2026</div>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">The Future is Green</h3>
+            <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed">Today, Spinach the Cow is more than merchandise — it's a lifestyle. We're expanding into home goods, wellness products, and educational content. Our mission remains the same: make learning cool, living kind, and laughing often. And yes, Spinach still loves her books.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR VALUES
+       ============================================================ -->
+  <section class="py-24 md:py-32 bg-brand-green/10 dark:bg-gray-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">What We Stand For</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white">Our Values</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <!-- Value 1 -->
+        <div class="reveal text-center bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover shadow-sm">
+          <div class="w-16 h-16 mx-auto bg-brand-green/20 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg text-brand-charcoal dark:text-white mb-2">Curiosity</h3>
+          <p class="text-sm text-brand-charcoal/60 dark:text-gray-400">Never stop asking "why?" — the best adventures start with a question.</p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="reveal text-center bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover shadow-sm">
+          <div class="w-16 h-16 mx-auto bg-brand-sky/30 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg text-brand-charcoal dark:text-white mb-2">Kindness</h3>
+          <p class="text-sm text-brand-charcoal/60 dark:text-gray-400">Small acts of kindness ripple outward. We build products that give back.</p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="reveal text-center bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover shadow-sm">
+          <div class="w-16 h-16 mx-auto bg-brand-green/20 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg text-brand-charcoal dark:text-white mb-2">Sustainability</h3>
+          <p class="text-sm text-brand-charcoal/60 dark:text-gray-400">Every choice matters. From organic cotton to recycled packaging — we tread lightly.</p>
+        </div>
+
+        <!-- Value 4 -->
+        <div class="reveal text-center bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover shadow-sm">
+          <div class="w-16 h-16 mx-auto bg-brand-beige/30 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="font-serif text-lg text-brand-charcoal dark:text-white mb-2">Community</h3>
+          <p class="text-sm text-brand-charcoal/60 dark:text-gray-400">We grow together. Our herd is a place where everyone belongs.</p>
+        </div>
+
+        <!-- Value 5 -->
+        <div class="reveal text-center bg-white dark:bg-gray-900 rounded-2xl p-8 card-hover shadow-sm">
+          <div class="w-16 h-16 mx-auto bg-brand-sky/30 rounded-2xl flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="font-serif text-lg text-brand-charcoal dark:text-white mb-2">Lifelong Learning</h3>
+          <p class="text-sm text-brand-charcoal/60 dark:text-gray-400">Growing never stops. Every day is a chance to learn something moo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR TEAM
+       ============================================================ -->
+  <section id="team" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">The Herd</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-4">Meet Our Team</h2>
+        <p class="max-w-2xl mx-auto text-lg text-brand-charcoal/60 dark:text-gray-400">The brilliant minds powering Spinach the Cow — from trend discovery to your doorstep.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Andrew — Founder -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Andrew.jpg" alt="Andrew — Founder" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-beige/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Andrew</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Founder &amp; Chief Cow Officer</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">The visionary behind Spinach the Cow. Built the herd from scratch and keeps the whole operation mooo-ving.</p>
+          </div>
+        </div>
+
+        <!-- Bubba — Trend Researcher -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Bubba.jpg" alt="Bubba — Trend Researcher" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-sky/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Bubba</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Trend Researcher</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Scrapes Google Trends, Reddit, and the seasonal calendar to find what's next before everyone else does.</p>
+          </div>
+        </div>
+
+        <!-- Clark — Quality Analyst -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Clark.jpg" alt="Clark — Quality Analyst" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-sky/40 to-brand-beige/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Clark</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Quality Analyst</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Scores every trend, filters by threshold, and runs risk checks so only the best ideas make the cut.</p>
+          </div>
+        </div>
+
+        <!-- Lewis — Visual Designer -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Lewis.jpg" alt="Lewis — Visual Designer" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-beige/40 to-brand-green/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Lewis</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Visual Designer</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Brings ideas to life with stunning visuals generated through Flux Schnell and DALL-E.</p>
+          </div>
+        </div>
+
+        <!-- Flactoid Johnson — Text Designer -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/flactoid.png" alt="Flactoid Johnson — Text Designer" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-beige/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Flactoid Johnson</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Text Designer</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Crafts bold typographic designs and slogans that give every product its voice and personality.</p>
+          </div>
+        </div>
+
+        <!-- Sasha — Collection Manager -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Sasha.png" alt="Sasha — Collection Manager" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-sky/40 to-brand-green/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Sasha</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Collection Manager</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Builds themed collections and coordinates designs so every drop tells a cohesive story.</p>
+          </div>
+        </div>
+
+        <!-- Tony — Creative Director -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Tony.png" alt="Tony — Creative Director" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-beige/40 to-brand-sky/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Tony</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Creative Director</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Drew's Mind — the personal ideas engine that shapes the creative vision behind everything Spinach.</p>
+          </div>
+        </div>
+
+        <!-- Charlie — Product Engineer -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Charlie.png" alt="Charlie — Product Engineer" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-sky/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Charlie</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Product Engineer</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Creates Printify products and manages mockups — turning designs into real, shippable merch.</p>
+          </div>
+        </div>
+
+        <!-- Kelly — Marketing Manager -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Kelly.png" alt="Kelly — Marketing Manager" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-beige/40 to-brand-green/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Kelly</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Marketing Manager</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Generates social copy across all channels — from Instagram captions to email campaigns that convert.</p>
+          </div>
+        </div>
+
+        <!-- Beth — Finance Analyst -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Beth.png" alt="Beth — Finance Analyst" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-sky/40 to-brand-beige/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Beth</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Finance Analyst</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Tracks API costs and spending to keep the operation lean, efficient, and profitable.</p>
+          </div>
+        </div>
+
+        <!-- Mark — Pipeline Orchestrator -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/Mark.png" alt="Mark — Pipeline Orchestrator" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-green/40 to-brand-beige/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">Mark</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Pipeline Orchestrator</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Runs the Sunday batch and keeps the entire team in order — the conductor of the Spinach symphony.</p>
+          </div>
+        </div>
+
+        <!-- John — Review Manager -->
+        <div class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-square relative overflow-hidden">
+            <img src="images/team/John.png" alt="John — Review Manager" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-beige/40 to-brand-sky/40 items-center justify-center hidden">
+              <div class="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                <svg class="w-10 h-10 text-brand-charcoal/30" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-serif text-lg text-brand-charcoal dark:text-white">John</h3>
+            <p class="text-sm font-semibold text-brand-green-deep mt-0.5">Review Manager</p>
+            <p class="text-xs text-brand-charcoal/60 dark:text-gray-400 mt-2 leading-relaxed">Approve, reject, or delay — John makes the final call before anything goes live.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS
+       ============================================================ -->
+  <section class="py-24 md:py-32 bg-brand-cream dark:bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">Community Voices</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white">What the Herd Says</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm relative">
+          <div class="absolute top-6 right-8 text-6xl text-brand-green/20 font-serif leading-none">&ldquo;</div>
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed mb-6">"My daughter refuses to take off her Spinach hoodie. It's the softest thing she owns, and she now asks to 'read like Spinach' every night before bed. This brand is pure magic."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-green/20 flex items-center justify-center font-semibold text-brand-green-deep text-sm">AR</div>
+            <div>
+              <div class="font-semibold text-sm text-brand-charcoal dark:text-white">Aisha R.</div>
+              <div class="text-xs text-brand-charcoal/50 dark:text-gray-500">Parent & Educator</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm relative">
+          <div class="absolute top-6 right-8 text-6xl text-brand-green/20 font-serif leading-none">&ldquo;</div>
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed mb-6">"Finally, a brand that's sustainable without being preachy. The quality is insane — my canvas tote has survived a year of daily farmer's market runs. Plus, the cow is just adorable."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-sky/30 flex items-center justify-center font-semibold text-brand-green-deep text-sm">TK</div>
+            <div>
+              <div class="font-semibold text-sm text-brand-charcoal dark:text-white">Tyler K.</div>
+              <div class="text-xs text-brand-charcoal/50 dark:text-gray-500">Sustainability Advocate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm relative">
+          <div class="absolute top-6 right-8 text-6xl text-brand-green/20 font-serif leading-none">&ldquo;</div>
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-brand-beige" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed mb-6">"I bought the 'Spinach's Big Adventure' book for my classroom and the kids went absolutely wild. Now they all want to be 'curious like Spinach.' Best teaching tool I never expected."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-brand-beige/30 flex items-center justify-center font-semibold text-brand-green-deep text-sm">SJ</div>
+            <div>
+              <div class="font-semibold text-sm text-brand-charcoal dark:text-white">Sam J.</div>
+              <div class="text-xs text-brand-charcoal/50 dark:text-gray-500">3rd Grade Teacher</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BLOG TEASER
+       ============================================================ -->
+  <section id="blog" class="py-24 md:py-32 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">From the Pasture</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-4">Latest from the Blog</h2>
+        <p class="max-w-2xl mx-auto text-lg text-brand-charcoal/60 dark:text-gray-400">Stories, tips, and musings on living curiously.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Blog 1 -->
+        <article class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-video bg-gradient-to-br from-brand-green/30 to-brand-sky/30 flex items-center justify-center">
+            <span class="text-5xl">📖</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Lifestyle</span>
+              <span class="text-xs text-brand-charcoal/40 dark:text-gray-500">Jun 15, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">5 Books Spinach Is Reading This Summer</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 leading-relaxed">Our favorite cow's summer reading list — from philosophy to picture books, there's something for everyone.</p>
+            <a href="#" class="inline-flex items-center mt-4 text-brand-green-deep hover:text-brand-green-dark text-sm font-semibold transition-colors">
+              Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog 2 -->
+        <article class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-video bg-gradient-to-br from-brand-beige/30 to-brand-green/30 flex items-center justify-center">
+            <span class="text-5xl">🌱</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Sustainability</span>
+              <span class="text-xs text-brand-charcoal/40 dark:text-gray-500">Jun 8, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">How We Reduced Our Packaging Waste by 80%</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 leading-relaxed">A behind-the-scenes look at our journey to nearly plastic-free packaging and what we learned along the way.</p>
+            <a href="#" class="inline-flex items-center mt-4 text-brand-green-deep hover:text-brand-green-dark text-sm font-semibold transition-colors">
+              Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog 3 -->
+        <article class="reveal card-hover bg-brand-cream dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm">
+          <div class="aspect-video bg-gradient-to-br from-brand-sky/30 to-brand-beige/30 flex items-center justify-center">
+            <span class="text-5xl">🎨</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Behind the Scenes</span>
+              <span class="text-xs text-brand-charcoal/40 dark:text-gray-500">May 29, 2026</span>
+            </div>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mb-2">Designing the Fall Collection with Elena</h3>
+            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 leading-relaxed">Creative Director Elena Vargas shares her process, from mood boards to final prints, for our coziest drop yet.</p>
+            <a href="#" class="inline-flex items-center mt-4 text-brand-green-deep hover:text-brand-green-dark text-sm font-semibold transition-colors">
+              Read More <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT SECTION
+       ============================================================ -->
+  <section id="contact" class="py-24 md:py-32 bg-brand-cream dark:bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <!-- Left: Info -->
+        <div class="reveal">
+          <span class="inline-block text-brand-green-deep font-semibold text-sm tracking-widest uppercase mb-4">Get in Touch</span>
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-charcoal dark:text-white mb-6">
+            We'd Love to<br />Hear From You
+          </h2>
+          <p class="text-lg text-brand-charcoal/70 dark:text-gray-300 mb-8 leading-relaxed">
+            Whether you have a question about our products, want to collaborate, or just want to say hi — our barn doors are always open.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-brand-charcoal dark:text-white">Email</h4>
+                <p class="text-brand-charcoal/60 dark:text-gray-400">hello@spinachthecow.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-sky/30 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-brand-charcoal dark:text-white">Location</h4>
+                <p class="text-brand-charcoal/60 dark:text-gray-400">Austin, TX (Remote-first team)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-beige/30 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-brand-charcoal dark:text-white">Response Time</h4>
+                <p class="text-brand-charcoal/60 dark:text-gray-400">We usually respond within 24 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="reveal">
+          <form class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-sm space-y-6" onsubmit="event.preventDefault(); this.querySelector('.submit-btn').textContent='Message Sent!'; this.querySelector('.submit-btn').classList.add('bg-brand-green'); setTimeout(() => { this.reset(); this.querySelector('.submit-btn').textContent='Send Message'; this.querySelector('.submit-btn').classList.remove('bg-brand-green'); }, 3000);">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-brand-charcoal dark:text-gray-200 mb-2">First Name</label>
+                <input type="text" id="firstName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-brand-cream dark:bg-gray-800 text-brand-charcoal dark:text-white focus:ring-2 focus:ring-brand-green-deep focus:border-transparent outline-none transition-all" placeholder="Your first name" />
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-brand-charcoal dark:text-gray-200 mb-2">Last Name</label>
+                <input type="text" id="lastName" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-brand-cream dark:bg-gray-800 text-brand-charcoal dark:text-white focus:ring-2 focus:ring-brand-green-deep focus:border-transparent outline-none transition-all" placeholder="Your last name" />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-brand-charcoal dark:text-gray-200 mb-2">Email</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-brand-cream dark:bg-gray-800 text-brand-charcoal dark:text-white focus:ring-2 focus:ring-brand-green-deep focus:border-transparent outline-none transition-all" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="subject" class="block text-sm font-medium text-brand-charcoal dark:text-gray-200 mb-2">Subject</label>
+              <select id="subject" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-brand-cream dark:bg-gray-800 text-brand-charcoal dark:text-white focus:ring-2 focus:ring-brand-green-deep focus:border-transparent outline-none transition-all">
+                <option>General Inquiry</option>
+                <option>Order Support</option>
+                <option>Wholesale / Partnerships</option>
+                <option>Press & Media</option>
+                <option>Just Saying Hi!</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-brand-charcoal dark:text-gray-200 mb-2">Message</label>
+              <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-brand-cream dark:bg-gray-800 text-brand-charcoal dark:text-white focus:ring-2 focus:ring-brand-green-deep focus:border-transparent outline-none transition-all resize-none" placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn w-full px-8 py-4 bg-brand-green-deep hover:bg-brand-green-dark text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-brand-green-deep/25">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER BANNER
+       ============================================================ -->
+  <section class="py-16 bg-brand-green-deep">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-2xl md:text-3xl text-white mb-3">Join the Herd</h2>
+      <p class="text-white/80 mb-8 text-lg">Get early access to new drops, exclusive discounts, and Spinach's weekly reading recommendations.</p>
+      <form class="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed!'; setTimeout(() => { this.reset(); this.querySelector('button').textContent='Subscribe'; }, 3000);">
+        <input type="email" required placeholder="your@email.com" class="flex-1 w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:ring-2 focus:ring-white/50 focus:border-transparent outline-none" />
+        <button type="submit" class="px-8 py-4 bg-white text-brand-green-deep font-semibold rounded-full hover:bg-brand-cream transition-all hover:shadow-lg whitespace-nowrap">Subscribe</button>
+      </form>
+      <p class="text-white/50 text-xs mt-4">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-brand-charcoal text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <a href="#home" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green flex items-center justify-center text-white font-serif text-xl font-bold">S</div>
+            <span class="font-serif text-xl text-white">Spinach<span class="text-brand-green">.</span></span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">A wholesome lifestyle brand where curiosity meets kindness. Learning, living, and laughing — one moo at a time.</p>
+          <!-- Social Icons -->
+          <div class="flex items-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-green-deep flex items-center justify-center transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-green-deep flex items-center justify-center transition-colors" aria-label="TikTok">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.76a8.26 8.26 0 004.76 1.51v-3.4a4.85 4.85 0 01-1.04-.18z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-green-deep flex items-center justify-center transition-colors" aria-label="Twitter/X">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-green-deep flex items-center justify-center transition-colors" aria-label="YouTube">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-4 text-gray-300">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#shop" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Shop All</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-brand-green text-sm transition-colors">About Us</a></li>
+            <li><a href="#story" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Our Story</a></li>
+            <li><a href="#blog" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Blog</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-4 text-gray-300">Customer Care</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Shipping & Returns</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Size Guide</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">FAQ</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Track Order</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Gift Cards</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-4 text-gray-300">Legal</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-brand-green text-sm transition-colors">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">&copy; 2026 Spinach the Cow. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' fill='%23999'%3E%3Crect width='40' height='24' rx='3' fill='%23333'/%3E%3Ctext x='20' y='16' font-size='9' fill='%23999' text-anchor='middle'%3EVisa%3C/text%3E%3C/svg%3E" alt="Visa" class="h-6 opacity-50" />
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' fill='%23999'%3E%3Crect width='40' height='24' rx='3' fill='%23333'/%3E%3Ctext x='20' y='16' font-size='7' fill='%23999' text-anchor='middle'%3EMaster%3C/text%3E%3C/svg%3E" alt="Mastercard" class="h-6 opacity-50" />
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' fill='%23999'%3E%3Crect width='40' height='24' rx='3' fill='%23333'/%3E%3Ctext x='20' y='16' font-size='7' fill='%23999' text-anchor='middle'%3EPayPal%3C/text%3E%3C/svg%3E" alt="PayPal" class="h-6 opacity-50" />
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' fill='%23999'%3E%3Crect width='40' height='24' rx='3' fill='%23333'/%3E%3Ctext x='20' y='16' font-size='7' fill='%23999' text-anchor='middle'%3EApple%3C/text%3E%3C/svg%3E" alt="Apple Pay" class="h-6 opacity-50" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+  <script>
+    // Navbar scroll behavior
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-solid');
+      } else {
+        navbar.classList.remove('nav-solid');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    }
+
+    darkToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Intersection Observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll offset for fixed navbar
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = target.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

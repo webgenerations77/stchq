@@ -131,7 +131,7 @@
         <!-- Logo -->
         <a href="#home" class="flex items-center gap-2 group">
           <img src="images/Logo.png" alt="Spinach the Cow logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full group-hover:scale-110 transition-transform" />
-          <span class="font-serif text-lg md:text-xl text-brand-charcoal dark:text-white">Spinach<span class="text-brand-green-deep">.</span></span>
+          <span class="font-serif text-lg md:text-xl text-brand-charcoal dark:text-white">Spinach the Cow</span>
         </a>
 
         <!-- Desktop Menu -->
@@ -307,129 +307,38 @@
         <p class="max-w-2xl mx-auto text-lg text-brand-charcoal/60 dark:text-gray-400">Thoughtfully designed, made with heart. Each piece carries a piece of Spinach's story.</p>
       </div>
 
-      <!-- Product Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Product 1 -->
+      <!-- Featured Product + Store CTA -->
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <!-- Featured Product -->
         <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
           <div class="aspect-square product-placeholder flex items-center justify-center relative group">
-            <span class="text-7xl">👕</span>
+            <span class="text-8xl">👕</span>
             <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
+              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">View in Store</a>
             </div>
           </div>
           <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Bestseller</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Classic Spinach Tee</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Premium Cotton Blend</p>
+            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Featured</span>
+            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Solstice 2026 Celestial Sun Festival Gift Tee</h3>
             <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$38</span>
+              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$24.99</span>
               <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
             </div>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
-          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #B8DFF0 0%, #A8D5A0 50%, #E8C87A 100%);">
-            <span class="text-7xl">🧥</span>
-            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
-            </div>
+        <!-- Store CTA Card -->
+        <div class="reveal text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-green/20 mb-6">
+            <svg class="w-10 h-10 text-brand-green-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
           </div>
-          <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">New</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Cozy Pasture Hoodie</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Heavyweight French Terry</p>
-            <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$68</span>
-              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
-            </div>
-          </div>
+          <h3 class="font-serif text-2xl md:text-3xl text-brand-charcoal dark:text-white mb-4">New Drops Coming Soon</h3>
+          <p class="text-brand-charcoal/70 dark:text-gray-300 leading-relaxed mb-8">We're always cooking up fresh designs. Visit our store to see the latest merch and be the first to grab new releases.</p>
+          <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="inline-flex items-center px-8 py-4 bg-brand-green-deep hover:bg-brand-green-dark text-white font-semibold rounded-full transition-all hover:shadow-xl hover:shadow-brand-green-deep/30 hover:scale-105">
+            Visit Our Store
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
         </div>
-
-        <!-- Product 3 -->
-        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
-          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #E8C87A 0%, #A8D5A0 50%, #B8DFF0 100%);">
-            <span class="text-7xl">👜</span>
-            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Popular</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Spinach Canvas Tote</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Durable Canvas</p>
-            <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$28</span>
-              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
-          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #A8D5A0 0%, #E8C87A 50%, #B8DFF0 100%);">
-            <span class="text-7xl">☕</span>
-            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Fan Favorite</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Morning Meadow Mug</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Ceramic, 14oz</p>
-            <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$22</span>
-              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
-          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #B8DFF0 0%, #E8C87A 50%, #A8D5A0 100%);">
-            <span class="text-7xl">📚</span>
-            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">New Release</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Spinach's Big Adventure</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Illustrated Children's Book</p>
-            <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$18</span>
-              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 6 -->
-        <div class="reveal card-hover bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm">
-          <div class="aspect-square product-placeholder flex items-center justify-center relative group" style="background: linear-gradient(135deg, #E8C87A 0%, #B8DFF0 50%, #A8D5A0 100%);">
-            <span class="text-7xl">🧢</span>
-            <div class="absolute inset-0 bg-brand-green-deep/0 group-hover:bg-brand-green-deep/10 transition-all flex items-center justify-center">
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-brand-green-deep px-6 py-2 rounded-full font-semibold text-sm shadow-lg">Quick View</span>
-            </div>
-          </div>
-          <div class="p-6">
-            <span class="text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Limited</span>
-            <h3 class="font-serif text-xl text-brand-charcoal dark:text-white mt-1">Pasture Dad Cap</h3>
-            <p class="text-sm text-brand-charcoal/60 dark:text-gray-400 mt-1">Embroidered, Adjustable</p>
-            <div class="flex items-center justify-between mt-4">
-              <span class="text-xl font-bold text-brand-charcoal dark:text-white">$32</span>
-              <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="px-4 py-2 bg-brand-green-deep hover:bg-brand-green-dark text-white text-sm font-semibold rounded-full transition-all inline-block">Shop Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- View All -->
-      <div class="text-center mt-12 reveal">
-        <a href="https://shop.spinachthecow.com" target="_blank" rel="noopener" class="inline-flex items-center px-8 py-4 border-2 border-brand-green-deep text-brand-green-deep hover:bg-brand-green-deep hover:text-white font-semibold rounded-full transition-all">
-          Visit Our Store
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
       </div>
     </div>
   </section>
@@ -1020,7 +929,7 @@
         <div>
           <a href="#home" class="flex items-center gap-2 mb-4">
             <img src="images/Logo.png" alt="Spinach the Cow logo" class="w-10 h-10 rounded-full" />
-            <span class="font-serif text-xl text-white">Spinach<span class="text-brand-green">.</span></span>
+            <span class="font-serif text-xl text-white">Spinach the Cow</span>
           </a>
           <p class="text-gray-400 text-sm leading-relaxed mb-6">A wholesome lifestyle brand built on helping others, community, and becoming your best self. Learning, living, and laughing — one moo at a time.</p>
           <!-- Social Icons -->

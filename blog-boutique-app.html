@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building Our Boutique App from Scratch — Spinach the Cow</title>
+  <meta name="description" content="A peek inside how we're crafting a custom boutique app for the Spinach community — from wireframes to launch day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { green: '#A8D5A0', 'green-deep': '#4A9E3F', 'green-dark': '#357A2B', sky: '#B8DFF0', beige: '#E8C87A', cream: '#FAF8F5', charcoal: '#2D2D2D' }
+          },
+          fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'], serif: ['DM Serif Display', 'Georgia', 'serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans text-brand-charcoal bg-brand-cream antialiased">
+
+  <!-- Nav -->
+  <nav class="bg-brand-cream border-b border-brand-green/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="images/Logo.png" alt="Spinach the Cow logo" class="w-10 h-10 rounded-full" />
+        <span class="font-serif text-lg">Spinach the Cow</span>
+      </a>
+      <a href="index.html#blog" class="text-sm text-brand-green-deep hover:text-brand-green-dark font-medium transition-colors">&larr; Back to Blog</a>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <div class="mb-6">
+      <span class="inline-block text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Behind the Scenes</span>
+      <span class="text-xs text-brand-charcoal/40 ml-3">May 29, 2026</span>
+    </div>
+    <h1 class="font-serif text-4xl md:text-5xl text-brand-charcoal mb-8">Building Our Boutique App from Scratch</h1>
+
+    <div class="aspect-video bg-gradient-to-br from-brand-sky/30 to-brand-beige/30 flex items-center justify-center rounded-2xl mb-12">
+      <span class="text-7xl">📱</span>
+    </div>
+
+    <div class="prose prose-lg max-w-none space-y-6 text-brand-charcoal/80 leading-relaxed">
+      <p>For a while now, we've been kicking around the idea of building a dedicated app for the Spinach community. Not some bloated, generic shopping app — something small, intentional, and built from scratch with the same care we put into everything else. A boutique app for a boutique brand. We're finally doing it, and we wanted to pull back the curtain on what that process actually looks like.</p>
+
+      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">Why Build Custom</h2>
+
+      <p>There are plenty of off-the-shelf solutions out there. Plug-and-play store apps, template-based platforms, white-label options. We tried a few. They all felt the same — generic, impersonal, and nothing like the experience we want for our community. Spinach the Cow has a personality, and our app should too.</p>
+
+      <p>So we decided to go custom. A boutique development approach where every screen, every interaction, every little detail is designed specifically for our community. It costs more time and effort, but the result is something that actually feels like us.</p>
+
+      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">From Wireframes to Reality</h2>
+
+      <p>The process started with wireframes — rough sketches of what each screen would look like and how users would move through the app. We wanted it to feel effortless: browse products, check out community events, read blog posts, and connect with other members of the herd — all in one place.</p>
+
+      <p>From there, we moved into design. This is where the Spinach personality comes in. Our brand colors, our fonts, those little touches that make you smile — like a tiny cow icon in the loading screen and pasture-themed transitions between sections. It's the small things that make an app feel alive.</p>
+
+      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">What's Inside</h2>
+
+      <p>Without giving everything away, here's a taste of what we're building:</p>
+
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Shop integration</strong> — Browse and buy directly from the app with a seamless checkout experience</li>
+        <li><strong>Community hub</strong> — See upcoming events, fundraisers, and local happenings in Ocean City</li>
+        <li><strong>Blog feed</strong> — All our latest posts, right in your pocket</li>
+        <li><strong>Exclusive drops</strong> — App-only merch and early access for the most dedicated members of the herd</li>
+        <li><strong>Notifications that matter</strong> — No spam, just heads-ups about things you actually care about</li>
+      </ul>
+
+      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">The Boutique Approach</h2>
+
+      <p>We keep calling this a "boutique" app because that word means something to us. It means handcrafted. It means we're not shipping features just to check boxes. Every piece of the app has a purpose, and if it doesn't serve the community, it doesn't make the cut.</p>
+
+      <p>Our development team is small and intentional — just like everything else we do. We'd rather take a little longer and get it right than rush something out the door that doesn't feel like Spinach.</p>
+
+      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">When Can You Get It</h2>
+
+      <p>We're not announcing a launch date just yet — because we want to make sure it's ready, not just done. But we're deep into development, and things are coming together fast. Follow us on socials for sneak peeks, beta invites, and the official launch announcement.</p>
+
+      <p>We can't wait to put this in your hands. Stay tuned.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-charcoal text-white/60 py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center text-sm">
+      &copy; 2026 Spinach the Cow. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

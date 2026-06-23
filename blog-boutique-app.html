@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,27 +11,50 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            brand: { green: '#A8D5A0', 'green-deep': '#4A9E3F', 'green-dark': '#357A2B', sky: '#B8DFF0', beige: '#E8C87A', cream: '#FAF8F5', charcoal: '#2D2D2D' }
+            brand: {
+              green: '#A8D5A0',
+              'green-deep': '#4A9E3F',
+              'green-dark': '#357A2B',
+              sky: '#B8DFF0',
+              beige: '#E8C87A',
+              cream: '#FAF8F5',
+              charcoal: '#2D2D2D',
+            }
           },
-          fontFamily: { sans: ['DM Sans', 'system-ui', 'sans-serif'], serif: ['DM Serif Display', 'Georgia', 'serif'] }
+          fontFamily: {
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+            serif: ['DM Serif Display', 'Georgia', 'serif'],
+          }
         }
       }
     }
   </script>
+  <script>
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 </head>
-<body class="font-sans text-brand-charcoal bg-brand-cream antialiased">
+<body class="font-sans text-brand-charcoal bg-brand-cream dark:bg-gray-950 dark:text-gray-100 antialiased">
 
   <!-- Nav -->
-  <nav class="bg-brand-cream border-b border-brand-green/10">
+  <nav class="bg-brand-cream dark:bg-gray-950 border-b border-brand-green/10 dark:border-gray-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2">
         <img src="images/Logo.png" alt="Spinach the Cow logo" class="w-10 h-10 rounded-full" />
-        <span class="font-serif text-lg">Spinach the Cow</span>
+        <span class="font-serif text-lg text-brand-charcoal dark:text-white">Spinach the Cow</span>
       </a>
-      <a href="index.html#blog" class="text-sm text-brand-green-deep hover:text-brand-green-dark font-medium transition-colors">&larr; Back to Blog</a>
+      <div class="flex items-center gap-3">
+        <button id="darkToggle" class="p-2 rounded-full hover:bg-brand-green/20 transition-colors" aria-label="Toggle dark mode">
+          <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+        <a href="index.html#blog" class="text-sm text-brand-green-deep hover:text-brand-green-dark font-medium transition-colors">&larr; Back to Blog</a>
+      </div>
     </div>
   </nav>
 
@@ -39,30 +62,30 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
     <div class="mb-6">
       <span class="inline-block text-xs font-semibold text-brand-green-deep uppercase tracking-wider">Behind the Scenes</span>
-      <span class="text-xs text-brand-charcoal/40 ml-3">May 29, 2026</span>
+      <span class="text-xs text-brand-charcoal/40 dark:text-gray-500 ml-3">May 29, 2026</span>
     </div>
-    <h1 class="font-serif text-4xl md:text-5xl text-brand-charcoal mb-8">Building Our Boutique App from Scratch</h1>
+    <h1 class="font-serif text-4xl md:text-5xl text-brand-charcoal dark:text-white mb-8">Building Our Boutique App from Scratch</h1>
 
     <div class="aspect-video overflow-hidden rounded-2xl mb-12">
       <img src="images/blog-app.jpg" alt="Smartphone displaying an app interface" class="w-full h-full object-cover" />
     </div>
 
-    <div class="prose prose-lg max-w-none space-y-6 text-brand-charcoal/80 leading-relaxed">
+    <div class="prose prose-lg max-w-none space-y-6 text-brand-charcoal/80 dark:text-gray-300 leading-relaxed">
       <p>For a while now, we've been kicking around the idea of building a dedicated app for the Spinach community. Not some bloated, generic shopping app — something small, intentional, and built from scratch with the same care we put into everything else. A boutique app for a boutique brand. We're finally doing it, and we wanted to pull back the curtain on what that process actually looks like.</p>
 
-      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">Why Build Custom</h2>
+      <h2 class="font-serif text-2xl text-brand-charcoal dark:text-white mt-10 mb-4">Why Build Custom</h2>
 
       <p>There are plenty of off-the-shelf solutions out there. Plug-and-play store apps, template-based platforms, white-label options. We tried a few. They all felt the same — generic, impersonal, and nothing like the experience we want for our community. Spinach the Cow has a personality, and our app should too.</p>
 
       <p>So we decided to go custom. A boutique development approach where every screen, every interaction, every little detail is designed specifically for our community. It costs more time and effort, but the result is something that actually feels like us.</p>
 
-      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">From Wireframes to Reality</h2>
+      <h2 class="font-serif text-2xl text-brand-charcoal dark:text-white mt-10 mb-4">From Wireframes to Reality</h2>
 
       <p>The process started with wireframes — rough sketches of what each screen would look like and how users would move through the app. We wanted it to feel effortless: browse products, check out community events, read blog posts, and connect with other members of the herd — all in one place.</p>
 
       <p>From there, we moved into design. This is where the Spinach personality comes in. Our brand colors, our fonts, those little touches that make you smile — like a tiny cow icon in the loading screen and pasture-themed transitions between sections. It's the small things that make an app feel alive.</p>
 
-      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">What's Inside</h2>
+      <h2 class="font-serif text-2xl text-brand-charcoal dark:text-white mt-10 mb-4">What's Inside</h2>
 
       <p>Without giving everything away, here's a taste of what we're building:</p>
 
@@ -74,13 +97,13 @@
         <li><strong>Notifications that matter</strong> — No spam, just heads-ups about things you actually care about</li>
       </ul>
 
-      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">The Boutique Approach</h2>
+      <h2 class="font-serif text-2xl text-brand-charcoal dark:text-white mt-10 mb-4">The Boutique Approach</h2>
 
       <p>We keep calling this a "boutique" app because that word means something to us. It means handcrafted. It means we're not shipping features just to check boxes. Every piece of the app has a purpose, and if it doesn't serve the community, it doesn't make the cut.</p>
 
       <p>Our development team is small and intentional — just like everything else we do. Charlie, our Director of Product Development, has been leading the build from day one, while Tony has been pouring his creative vision into every screen and interaction. We'd rather take a little longer and get it right than rush something out the door that doesn't feel like Spinach.</p>
 
-      <h2 class="font-serif text-2xl text-brand-charcoal mt-10 mb-4">When Can You Get It</h2>
+      <h2 class="font-serif text-2xl text-brand-charcoal dark:text-white mt-10 mb-4">When Can You Get It</h2>
 
       <p>We're not announcing a launch date just yet — because we want to make sure it's ready, not just done. But we're deep into development, and things are coming together fast. Follow us on socials for sneak peeks, beta invites, and the official launch announcement.</p>
 
@@ -95,5 +118,12 @@
     </div>
   </footer>
 
+  <script>
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
